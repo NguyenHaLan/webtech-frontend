@@ -1,0 +1,18 @@
+{
+  "name": "test-setup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "webtech-frontend"
+  },
+  "author": "Ha Lan Nguyen",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.5.0"
+  }
+}
