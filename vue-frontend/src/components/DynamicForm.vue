@@ -1,16 +1,33 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-    <h3>Habit Tracker</h3>
-    <div>
-        <input v-model="habitField" placeholder="Habit" type="text" ref="habitInput">
-        <input v-model="targetField" placeholder="Target" @keyup.enter="save()">
-        <button type="button" @click="save()">Save</button>
-    </div>
-
-
+  <h3>123</h3>
+  <div>
+      <input v-model="habitField" placeholder="Habit" type="text" ref="habitInput">
+      <input v-model="targetField" placeholder="Target" @keyup.enter="save()">
+      <button type="button" @click="save()">Save</button>
+  </div>
+  <div>
+      <table>
+          <thread>
+              <tr>
+                  <th>Habit</th>
+                  <th>Target</th>
+              </tr>
+          </thread>
+          <body>
+          <tr v-if="items.length === 0">
+              <td colspan="2">No habits yet</td>
+          </tr>
+          <tr v-for="item in items" :key="item.id">
+              <td>{{item.habit}}</td>
+              <td>{{item.target}}</td>
+          </tr>
+          <tr>
+              <td>{{item.habitField}}</td>
+              <td>{{item.targetField}}</td>
+          </tr>
+          </body>
+      </table>
+  </div>
 </template>
 
 <script>
@@ -57,12 +74,6 @@ export default {
                     console.log('Success:', data)
                 })
                 .catch(error => console.log('error', error))
-        },
-        async setup () {
-            if (this.$root.authenticated) {
-                this.claims = await this.$auth.getUser()
-                // this.accessToken = await this.$auth.getAccessToken()
-            }
         }
     },
     async created () {
@@ -77,32 +88,6 @@ export default {
 }
 </script>
 
+<style scoped>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>
-<script setup>
-</script>
-<script setup>
-</script>
-<script setup>
-</script>
